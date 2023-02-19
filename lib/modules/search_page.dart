@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/providers/weather_provider.dart';
-import 'package:weather_app/shared/cubit/cubit.dart';
-import 'package:weather_app/shared/network/remote/weather_service.dart';
+
+import '../models/weather_model.dart';
+import '../shared/cubit/cubit.dart';
+import '../shared/network/remote/weather_service.dart';
 
 // ignore: must_be_immutable
 class SearchPage extends StatelessWidget {
@@ -44,10 +43,10 @@ class SearchPage extends StatelessWidget {
                     WeatherModel? weather =
                         await service.getWeather(cityName: cityName!);
 
-                    Provider.of<WeatherProvider>(context, listen: false)
-                        .weatherData = weather;
-                    Provider.of<WeatherProvider>(context, listen: false)
-                        .cityName = cityName;
+                    BlocProvider.of<AppCubit>(context, listen: false)
+                        .weatherModel = weather;
+                    BlocProvider.of<AppCubit>(context, listen: false).cityName =
+                        cityName;
 
                     Navigator.pop(context);
                   },

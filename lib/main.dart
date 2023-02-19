@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/modules/home_page.dart';
-import 'package:weather_app/shared/cubit/cubit.dart';
 
+import 'modules/home_page.dart';
+import 'shared/cubit/cubit.dart';
 import 'shared/network/remote/weather_service.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class WeatherApp extends StatelessWidget {
             ? Colors.blue
             : BlocProvider.of<AppCubit>(context).weatherModel!.getThemeColor(),
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

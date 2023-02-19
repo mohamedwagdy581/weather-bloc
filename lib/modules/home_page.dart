@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/modules/search_page.dart';
-import 'package:weather_app/shared/cubit/cubit.dart';
-import 'package:weather_app/shared/cubit/states.dart';
+
+import '../models/weather_model.dart';
+import '../shared/cubit/cubit.dart';
+import '../shared/cubit/states.dart';
+import 'search_page.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
-  WeatherModel? weatherData;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
